@@ -1,0 +1,665 @@
+Program.Sub.ScreenSU.Start
+Gui.frmPaySetup..Create
+Gui.frmPaySetup..Caption("ePaystubs Setup")
+Gui.frmPaySetup..Size(5565,5040)
+Gui.frmPaySetup..MinX(0)
+Gui.frmPaySetup..MinY(0)
+Gui.frmPaySetup..Position(0,0)
+Gui.frmPaySetup..BackColor(-2147483633)
+Gui.frmPaySetup..MousePointer(0)
+Gui.frmPaySetup..Event(UnLoad,frmPaySetup_UnLoad)
+Gui.frmPaySetup..MaxButton(False)
+Gui.frmPaySetup..Sizeable(False)
+Gui.frmPaySetup.txtBody.Create(TextboxM)
+Gui.frmPaySetup.txtBody.Size(5385,2115)
+Gui.frmPaySetup.txtBody.Position(30,2220)
+Gui.frmPaySetup.lblSubject.Create(Label,"Default Subject:",True,1935,255,0,30,1380,True,0,"Arial",8,-2147483633,0)
+Gui.frmPaySetup.lblSubject.FontStyle(True,False,False,False,False)
+Gui.frmPaySetup.txtSubject.Create(TextBox,"",True,5385,300,0,30,1590,True,0,"Arial",8,-2147483643,1)
+Gui.frmPaySetup.lblBody.Create(Label,"Default Body:",True,1935,255,0,30,2010,True,0,"Arial",8,-2147483633,0)
+Gui.frmPaySetup.lblBody.FontStyle(True,False,False,False,False)
+Gui.frmPaySetup.txtSender.Create(TextBox,"",True,5385,300,0,30,300,True,0,"Arial",8,-2147483643,1)
+Gui.frmPaySetup.lblSender.Create(Label,"Default Sender Email:",True,1965,255,0,30,90,True,0,"Arial",8,-2147483633,0)
+Gui.frmPaySetup.lblSender.FontStyle(True,False,False,False,False)
+Gui.frmPaySetup.txtFilePath.Create(TextBox,"",True,4995,300,0,30,945,True,0,"Arial",8,-2147483643,1)
+Gui.frmPaySetup.lblFilePath.Create(Label,"Default File Path:",True,1485,255,0,30,735,True,0,"Arial",8,-2147483633,0)
+Gui.frmPaySetup.lblFilePath.FontStyle(True,False,False,False,False)
+Gui.frmPaySetup.cmdFilePath.Create(Button)
+Gui.frmPaySetup.cmdFilePath.Size(375,330)
+Gui.frmPaySetup.cmdFilePath.Position(5040,945)
+Gui.frmPaySetup.cmdFilePath.Event(Click,cmdFilePath_Click)
+Gui.frmPaySetup.cmdFilePath.Caption("....")
+Gui.frmPaySetup.cmdSave.Create(Button)
+Gui.frmPaySetup.cmdSave.Size(855,375)
+Gui.frmPaySetup.cmdSave.Position(4560,4350)
+Gui.frmPaySetup.cmdSave.Caption("Save")
+Gui.frmPaySetup.cmdSave.Event(Click,cmdSave_Click)
+Gui.frmPaySetup.lblFilePath2.Create(Label,"**This should be secured and off the network if possible",True,4005,255,0,1515,750,True,0,"Arial",7,-2147483633,0)
+Gui.frmPaySetup.lblFilePath2.FontStyle(False,True,False,False,False)
+Gui.frmPaySetup.chkAttach.Create(CheckBox)
+Gui.frmPaySetup.chkAttach.Size(3555,360)
+Gui.frmPaySetup.chkAttach.Position(30,4350)
+Gui.frmPaySetup.chkAttach.Caption("Delete attachment after email is sent")
+Gui.frmPaySetup.chkAttach.FontStyle(True,False,False,False,False)
+Gui.frmPaystubs..Create
+Gui.frmPaystubs..Caption("ePaystubs")
+Gui.frmPaystubs..Size(14820,5625)
+Gui.frmPaystubs..MinX(0)
+Gui.frmPaystubs..MinY(0)
+Gui.frmPaystubs..Position(0,0)
+Gui.frmPaystubs..BackColor(-2147483633)
+Gui.frmPaystubs..MousePointer(0)
+Gui.frmPaystubs..Event(UnLoad,frmPaystubs_UnLoad)
+Gui.frmPaystubs.GsGCPaystubs.Create(GsGridControl)
+Gui.frmPaystubs.GsGCPaystubs.Size(14655,4905)
+Gui.frmPaystubs.GsGCPaystubs.Position(15,15)
+Gui.frmPaystubs.GsGCPaystubs.Event(RowCellClick,GsGCPaystubs_RowCellClick)
+Gui.frmPaystubs.cmdSend.Create(Button)
+Gui.frmPaystubs.cmdSend.Size(1125,375)
+Gui.frmPaystubs.cmdSend.Position(13545,4935)
+Gui.frmPaystubs.cmdSend.Caption("Send Emails")
+Gui.frmPaystubs.cmdSend.Event(Click,cmdSend_Click)
+Gui.frmPaystubs.lblStatus.Create(Label,"Loading Paystubs....",False,1635,255,0,15,5010,True,0,"Arial",8,-2147483633,0)
+Gui.frmPaystubs.pbStatus.Create(ProgressBar)
+Gui.frmPaystubs.pbStatus.Size(2475,255)
+Gui.frmPaystubs.pbStatus.Position(1665,4950)
+Gui.frmPaystubs.pbStatus.Visible(False)
+Gui.frmEmail..Create
+Gui.frmEmail..Size(7140,6885)
+Gui.frmEmail..MinX(7260)
+Gui.frmEmail..MinY(7005)
+Gui.frmEmail..Position(0,0)
+Gui.frmEmail..BackColor(-2147483633)
+Gui.frmEmail..MousePointer(0)
+Gui.frmEmail..Event(UnLoad,frmEmail_UnLoad)
+Gui.frmEmail..Caption("Edit Email")
+Gui.frmEmail..MaxButton(False)
+Gui.frmEmail..Sizeable(False)
+Gui.frmEmail.txtBody.Create(TextboxM)
+Gui.frmEmail.txtBody.Size(6915,3810)
+Gui.frmEmail.txtBody.Position(75,2310)
+Gui.frmEmail.txtSubject.Create(TextboxM)
+Gui.frmEmail.txtSubject.Size(6915,300)
+Gui.frmEmail.txtSubject.Position(75,1665)
+Gui.frmEmail.lblBody.Create(Label,"Body:",True,660,255,0,75,2085,True,0,"Arial",8,-2147483633,0)
+Gui.frmEmail.lblSubject.Create(Label,"Subject:",True,765,255,0,75,1440,True,0,"Arial",8,-2147483633,0)
+Gui.frmEmail.txtSName.Create(TextBox,"",True,3375,300,0,75,360,True,0,"Arial",8,-2147483643,1)
+Gui.frmEmail.txtSName.MaxLength(30)
+Gui.frmEmail.txtRName.Create(TextBox,"",True,3375,300,0,75,975,True,0,"Arial",8,-2147483643,1)
+Gui.frmEmail.txtRName.MaxLength(30)
+Gui.frmEmail.txtSEmail.Create(TextBox,"",True,3375,300,0,3570,360,True,0,"Arial",8,-2147483643,1)
+Gui.frmEmail.txtSEmail.MaxLength(100)
+Gui.frmEmail.txtREmail.Create(TextBox,"",True,3375,300,0,3570,975,True,0,"Arial",8,-2147483643,1)
+Gui.frmEmail.txtREmail.MaxLength(100)
+Gui.frmEmail.lblSName.Create(Label,"Sender Name:",True,1200,210,0,45,135,True,0,"Arial",8,-2147483633,0)
+Gui.frmEmail.lblSEmail.Create(Label,"Sender Email:",True,1200,210,0,3540,135,True,0,"Arial",8,-2147483633,0)
+Gui.frmEmail.lblREmail.Create(Label,"Recipient Email:",True,1305,210,0,3540,750,True,0,"Arial",8,-2147483633,0)
+Gui.frmEmail.lblRName.Create(Label,"Recipient Name:",True,1350,210,0,45,750,True,0,"Arial",8,-2147483633,0)
+Gui.frmEmail.cmdSave.Create(Button)
+Gui.frmEmail.cmdSave.Size(855,330)
+Gui.frmEmail.cmdSave.Position(75,6165)
+Gui.frmEmail.cmdSave.Caption("Save")
+Gui.frmEmail.cmdSave.Event(Click,cmdSavePreview_Click)
+Gui.frmEmail.txtRow.Create(TextBox,"",False,330,300,0,6660,6180,True,0,"Arial",8,-2147483643,1)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+	V.Global.sDir.Declare
+	V.Global.bAttach.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sIcon.Declare
+	
+	F.Intrinsic.String.Build("{0}\GAB\GAS\gss2.ico",V.Caller.PluginsDir,v.Local.sIcon)
+	Gui.frmPaySetup..Icon(V.Local.sIcon)
+	Gui.frmPaystubs..Icon(V.Local.sIcon)
+	Gui.frmEmail..Icon(V.Local.sIcon)
+	
+	F.Intrinsic.Control.SelectCase(V.Caller.Hook)
+		F.Intrinsic.Control.Case(36815)
+			Gui.frmPaystubs..Show
+			F.Intrinsic.Control.CallSub(CheckTable,"Setup",False)
+			F.Intrinsic.Control.CallSub(SetAnchors)
+			F.Intrinsic.Control.CallSub(LoadPaystubs)
+			
+		F.Intrinsic.Control.CaseElse
+			Gui.frmPaySetup..Show
+			Gui.frmPaySetup.txtSender.SetFocus
+			F.Intrinsic.Control.CallSub(CheckTable,"Setup",True)
+			F.Intrinsic.Control.CallSub(LoadScreen)
+			
+	F.Intrinsic.Control.EndSelect
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.frmPaySetup_UnLoad.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.End
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.frmPaySetup_UnLoad.End
+
+Program.Sub.SetAnchors.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmPaystubs.GsGCPaystubs.Anchor(15)
+	Gui.frmPaystubs.lblStatus.Anchor(6)
+	Gui.frmPaystubs.pbStatus.Anchor(6)
+	Gui.frmPaystubs.cmdSend.Anchor(10)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.SetAnchors.End
+
+Program.Sub.CheckTable.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.bExists.Declare
+	
+	F.ODBC.Connection!con.OpenCompanyConnection
+	
+	F.Intrinsic.Control.If(V.Args.Setup)
+		F.ODBC.Connection!con.TableExists("GAB_4782_E_PAY_SETUP",V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,False)
+			F.ODBC.Connection!con.Execute("CREATE TABLE GAB_4782_E_PAY_SETUP(PID IDENTITY,SENDER CHAR(100),FILE_PATH LONGVARCHAR,SUBJECT CHAR(150),BODY LONGVARCHAR,ATTACH BIT);")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.ODBC.Connection!con.TableExists("GAB_4782_E_PAY_SETUP",V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,False)
+			F.Intrinsic.UI.Msgbox("Run Payroll > Administration > ePaystub Setup first.")
+			F.Intrinsic.Control.CallSub(frmPaySetup_UnLoad)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.Connection!con.Close
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.CheckTable.End
+
+Program.Sub.LoadScreen.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.ODBC.Connection!con.OpenCompanyConnection
+	
+	F.Data.DataTable.CreateFromSQL("dtSetup","con","Select * From GAB_4782_E_PAY_SETUP;",True)
+	F.Intrinsic.Control.If(V.DataTable.dtSetup.RowCount,<>,0)
+		Gui.frmPaySetup.txtSender.Text(V.DataTable.dtSetup(0).Sender!FieldValTrim)
+		Gui.frmPaySetup.txtFilePath.Text(V.DataTable.dtSetup(0).File_Path!FieldValTrim)
+		Gui.frmPaySetup.txtSubject.Text(V.DataTable.dtSetup(0).Subject!FieldValTrim)
+		Gui.frmPaySetup.txtBody.Text(V.DataTable.dtSetup(0).Body!FieldValTrim)
+		Gui.frmPaySetup.chkAttach.Value(0)
+		F.Intrinsic.Control.If(V.DataTable.dtSetup(0).Attach!FieldVal)
+			Gui.frmPaySetup.chkAttach.Value(1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.Connection!con.Close
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadScreen.End
+
+Program.Sub.cmdFilePath_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sFilePath.Declare
+	
+	F.Intrinsic.UI.FolderBrowser("Select Folder for Path",V.Local.sFilePath)
+	F.Intrinsic.Control.If(V.Local.sFilePath,<>,"***CANCEL***")
+		Gui.frmPaySetup.txtFilePath.Text(V.Local.sFilePath)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdFilePath_Click.End
+
+Program.Sub.cmdSave_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSender.Declare
+	V.Local.sFilePath.Declare
+	V.Local.sSubject.Declare
+	V.Local.sBody.Declare
+	V.Local.bAttach.Declare
+	V.Local.iRet.Declare
+	
+	V.Local.sSender.Set(V.Screen.frmPaySetup!txtSender.Text)
+	V.Local.sFilePath.Set(V.Screen.frmPaySetup!txtFilePath.Text)
+	V.Local.sSubject.Set(V.Screen.frmPaySetup!txtSubject.Text)
+	V.Local.sBody.Set(V.Screen.frmPaySetup!txtBody.Text)
+	
+	F.ODBC.Connection!con.OpenCompanyConnection
+	
+	F.Intrinsic.Control.If(V.Screen.frmPaySetup!chkAttach.Value,=,0)
+		V.Local.bAttach.Set(False)
+	F.Intrinsic.Control.Else
+		V.Local.bAttach.Set(True)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.DataTable.dtSetup.RowCount,=,0)
+		F.Data.DataTable.AddRow("dtSetup","PID",1,"Sender",V.Local.sSender.Trim,"File_Path",V.Local.sFilePath.Trim,"Subject",V.Local.sSubject.Trim,"Body",V.Local.sBody.Trim,"Attach",V.Local.bAttach)
+	F.Intrinsic.Control.Else
+		F.Data.DataTable.SetValue("dtSetup",0,"PID",1,"Sender",V.Local.sSender.Trim,"File_Path",V.Local.sFilePath.Trim,"Subject",V.Local.sSubject.Trim,"Body",V.Local.sBody.Trim,"Attach",V.Local.bAttach)
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataTable.SaveToDB("dtSetup","con","GAB_4782_E_PAY_SETUP","PID")
+	F.Data.DataTable.Close("dtSetup")
+	
+	F.ODBC.Connection!con.Close
+	
+	F.Intrinsic.UI.MsgBox("Close Screen?","Save Complete",4,V.Local.iRet)
+	F.Intrinsic.Control.If(V.Local.iRet,=,6)
+		F.Intrinsic.Control.CallSub(frmPaySetup_UnLoad)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.CallSub(LoadScreen)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdSave_Click.End
+
+Program.Sub.frmPaystubs_UnLoad.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.End
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.frmPaystubs_UnLoad.End
+
+Program.Sub.LoadPaystubs.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSQL.Declare
+	V.Local.iCnt.Declare
+	V.Local.sSender.Declare
+	V.Local.sFilePath.Declare
+	V.Local.sSubject.Declare
+	V.Local.sBody.Declare
+	V.Local.iBIRunID.Declare
+	V.Local.iRptID.Declare
+	V.Local.iLogID.Declare
+	V.Local.sParams.Declare
+	V.Local.sVals.Declare
+	V.Local.dCheckDate.Declare
+	V.Local.dPeriodEnd.Declare
+	V.Local.sDir.Declare
+	V.Local.bDir.Declare
+	
+	F.ODBC.Connection!con.OpenCompanyConnection
+	
+	Gui.frmPaystubs.lblStatus.Visible(True)
+	Gui.frmPaystubs.pbStatus.Visible(True)
+	Gui.frmPaystubs.pbStatus.Min(0)
+	
+	F.Intrinsic.String.Build("Select Distinct RptID,A.Employee,RTrim(A.Name) As Name,Dept,Check_Num,Check_Date,Period_End,LTrim(RTrim(Net_Pay)) As Net_Pay,Left(Phone,3)+'-'+SubString(Phone,4,3)+'-'+Right(Phone,4) As Phone,RTrim(Email_Addr) As Email_Addr From V_BI_Payroll_Chks A Left Join V_Employee_Mstr B On A.Employee = B.Employee Where Trmnl = '{0}'and RPTID = '009026' and B.EMAIL_DIR_DEP = 'Y';",V.Caller.Terminal,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtPaystubs","con",V.Local.sSQL,True)
+	
+	'check to make sure we have records before continuing or it will error out
+	f.Intrinsic.Control.If(v.DataTable.dtPaystubs.RowCount,>,0)
+	
+		F.Data.DataTable.CreateFromSQL("dtSetup","con","Select * From GAB_4782_E_PAY_SETUP;",True)
+		'Sender
+		F.Data.DataTable.AddColumn("dtPaystubs","Sender",String,V.DataTable.dtSetup(0).Sender!FieldValTrim)
+		'File_Path
+		F.Data.DataTable.AddColumn("dtPaystubs","File_Path",String,V.DataTable.dtSetup(0).File_Path!FieldValTrim)
+		'Subject
+		F.Data.DataTable.AddColumn("dtPaystubs","Subject",String,V.DataTable.dtSetup(0).Subject!FieldValTrim)
+		'Body
+		F.Data.DataTable.AddColumn("dtPaystubs","Body",String,V.DataTable.dtSetup(0).Body!FieldValTrim)
+		'Preview
+		F.Data.DataTable.AddColumn("dtPaystubs","Preview",String,"Preview")
+		
+		V.Global.bAttach.Set(V.DataTable.dtSetup(0).Attach!FieldVal)
+		
+		F.Intrinsic.Control.If(V.DataTable.dtPaystubs.RowCount,<>,0)
+			Gui.frmPaystubs.pbStatus.Max(V.DataTable.dtPaystubs.RowCount)
+		F.Intrinsic.Control.Else
+			Gui.frmPaystubs.pbStatus.Max(100)
+		F.Intrinsic.Control.EndIf
+		
+		V.Local.dCheckDate.Set(V.DataTable.dtPaystubs(0).Check_Date!FieldVal)
+		V.Local.dPeriodEnd.Set(V.DataTable.dtPaystubs(0).Period_End!FieldVal)
+		F.Intrinsic.String.Right(V.DataTable.dtSetup(0).File_Path!FieldValTrim,1,V.Local.sDir)
+		F.Intrinsic.Control.If(V.Local.sDir,=,"\")
+			F.Intrinsic.String.Build("{0}{1}",V.DataTable.dtSetup(0).File_Path!FieldValTrim,V.Local.dPeriodEnd.FormatYYYYMMDD,V.Local.sDir)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0}\{1}",V.DataTable.dtSetup(0).File_Path!FieldValTrim,V.Local.dPeriodEnd.FormatYYYYMMDD,V.Local.sDir)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.File.DirExists(V.Local.sDir,V.Local.bDir)
+		F.Intrinsic.Control.If(V.Local.bDir,=,False)
+			F.Intrinsic.File.CreateDir(V.Local.sDir)
+		F.Intrinsic.Control.EndIf
+		V.Global.sDir.Set(V.Local.sDir)
+		
+		F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtPaystubs.RowCount--,1)
+			Gui.frmPaystubs.pbStatus.Value(V.Local.iCnt)
+			F.Intrinsic.String.Build("{0}\{1}_{2}.pdf",V.Local.sDir,V.DataTable.dtPaystubs(V.Local.iCnt).Employee!FieldValTrim,V.Local.dCheckDate.FormatYYYYMMDD,V.Local.sFilePath)
+			F.Global.BI.GetRunID(V.Local.iBIRunID)
+			F.Global.BI.GetIDFromName("GAB_6145_PY_LongChk.rpt",V.Local.iRptID)
+			F.Global.BI.StartLogging(V.Local.iBIRunID,V.Local.iRptID,-1,"",V.Local.iLogID)
+			V.Local.sParams.Set("Terminal*!*Rptid*!*Employee")
+			F.Intrinsic.String.Build("{0}*!*{1}*!*{2}",V.Caller.Terminal,V.DataTable.dtPaystubs(V.Local.iCnt).RptID!FieldValTrim,V.DataTable.dtPaystubs(V.Local.iCnt).Employee!FieldValTrim,V.Local.sVals)
+			F.Global.BI.RunReportPreProcessor(V.Local.iBIRunID,V.Local.iLogID,V.Local.sParams,V.Local.sVals,"",4,True,"",-1,"",0,V.Local.sFilePath,"",V.Local.iLogID)
+			F.Global.BI.StopLogging(V.Local.iLogID)
+			F.Intrinsic.String.Replace(V.Local.sFilePath,V.Local.sDir,"",V.Local.sFilePath)
+			F.Intrinsic.String.Replace(V.Local.sFilePath,"\","",V.Local.sFilePath)
+			F.Data.DataTable.SetValue("dtPaystubs",V.Local.iCnt,"File_Path",V.Local.sFilePath)
+		F.Intrinsic.Control.Next(V.Local.iCnt)
+		
+		F.ODBC.Connection!con.Close
+		
+		F.Intrinsic.Control.CallSub(LoadGsGCPaystubs)
+		
+		F.Intrinsic.Control.If(V.DataTable.dtPaystubs.RowCount,<>,0)
+			Gui.frmPaystubs.pbStatus.Value(V.DataTable.dtPaystubs.RowCount)
+		F.Intrinsic.Control.Else
+			Gui.frmPaystubs.pbStatus.Value(100)
+		F.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.Else
+		f.Intrinsic.UI.Msgbox("No Data to Display","Payroll")
+	f.Intrinsic.Control.EndIf
+	
+	Gui.frmPaystubs.lblStatus.Visible(False)
+	Gui.frmPaystubs.pbStatus.Visible(False)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadPaystubs.End
+
+Program.Sub.LoadGsGCPaystubs.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmPaystubs.GsGCPaystubs.AddGridviewFromDatatable("gvPayStubs","dtPaystubs")
+	Gui.frmPaystubs.GsGCPaystubs.SuspendLayout()
+	Gui.frmPaystubs.GsGCPaystubs.SetGridViewProperty("gvPayStubs","MultiSelect",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetGridViewProperty("gvPayStubs","AllowSort",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetGridViewProperty("gvPayStubs","AllowFilter",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetGridViewProperty("gvPayStubs","OptionsDetailShowDetailTabs",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetGridViewProperty("gvPayStubs","OptionsViewShowGroupPanel",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetGridViewProperty("gvPayStubs","EnableAppearanceOddRow",True)
+	
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","RptID","Visible",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Net_Pay","Visible",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Phone","Visible",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Sender","Visible",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Subject","Visible",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Body","Visible",False)
+	
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Preview","ShowCaption",False)
+
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","RptID","Caption","Report ID")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Employee","Caption","Employee #")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Name","Caption","Name")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Dept","Caption","Dept")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Check_Num","Caption","Check #")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Check_Date","Caption","Check Date")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Period_End","Caption","Period End")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Net_Pay","Caption","Net Pay")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Phone","Caption","Phone")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Email_Addr","Caption","Email")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Sender","Caption","Sender")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","File_Path","Caption","Check")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Subject","Caption","Subject")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Body","Caption","Body")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Preview","Caption","Preview")
+
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","RptID","MinWidth","70")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Employee","MinWidth","85")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Name","MinWidth","175")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Dept","MinWidth","35")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Check_Num","MinWidth","50")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Check_Date","MinWidth","75")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Period_End","MinWidth","75")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Net_Pay","MinWidth","75")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Phone","MinWidth","85")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Email_Addr","MinWidth","175")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Sender","MinWidth","100")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","File_Path","MinWidth","115")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Subject","MinWidth","100")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Body","MinWidth","100")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Preview","MinWidth","55")
+	
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","RptID","AllowEdit",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Employee","AllowEdit",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Name","AllowEdit",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Dept","AllowEdit",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Check_Num","AllowEdit",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Check_Date","AllowEdit",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Period_End","AllowEdit",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Net_Pay","AllowEdit",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Phone","AllowEdit",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Email_Addr","AllowEdit",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Sender","AllowEdit",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","File_Path","AllowEdit",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Subject","AllowEdit",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Body","AllowEdit",False)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Preview","AllowEdit",False)
+	
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Email_Addr","ReadOnly",False)
+	
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","RptID","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Employee","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Name","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Dept","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Check_Num","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Check_Date","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Period_End","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Net_Pay","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Phone","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Email_Addr","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Sender","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","File_Path","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Subject","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Body","HeaderFontBold",True)
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Preview","HeaderFontBold",True)
+	
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","RptID","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Employee","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Name","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Dept","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Check_Num","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Check_Date","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Period_End","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Net_Pay","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Phone","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Email_Addr","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Sender","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","File_Path","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Subject","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Body","HeaderHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Preview","HeaderHAlignment","Center")
+	
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","RptID","CellHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Employee","CellHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Name","CellHAlignment","Left")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Dept","CellHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Check_Num","CellHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Check_Date","CellHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Period_End","CellHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Net_Pay","CellHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Phone","CellHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Email_Addr","CellHAlignment","Left")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Sender","CellHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","File_Path","CellHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Subject","CellHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Body","CellHAlignment","Center")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Preview","CellHAlignment","Center")
+
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","File_Path","CellForeColor","Blue")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Preview","CellForeColor","White")
+
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Email_Addr","CellBackColor","LightYellow")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Preview","CellBackColor","Gray")
+
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Check_Date","DisplayCustomDatetime","d")
+	Gui.frmPaystubs.GsGCPaystubs.SetColumnProperty("gvPayStubs","Period_End","DisplayCustomDatetime","d")
+	
+	Gui.frmPaystubs.GsGCPaystubs.ResumeLayout()
+	Gui.frmPaystubs.GsGCPaystubs.MainView("gvPayStubs")
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadGsGCPaystubs.End
+
+Program.Sub.GsGCPaystubs_RowCellClick.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sFilePath.Declare
+	
+	F.Intrinsic.Control.SelectCase(V.Args.Column)
+		F.Intrinsic.Control.Case("File_Path")
+			F.Intrinsic.String.Build("{0}\{1}",V.Global.sDir,V.DataTable.dtPaystubs(V.Args.RowIndex).File_Path!FieldValTrim,V.Local.sFilePath)
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFilePath,"","",1)
+			
+		F.Intrinsic.Control.Case("Preview")
+			Gui.frmEmail..Caption("Edit Email")
+			Gui.frmEmail.txtSName.Text("Payroll")
+			Gui.frmEmail.txtSEmail.Text(V.DataTable.dtPaystubs(V.Args.RowIndex).Sender!FieldValTrim)
+			Gui.frmEmail.txtRName.Text(V.DataTable.dtPaystubs(V.Args.RowIndex).Name!FieldValTrim)
+			Gui.frmEmail.txtREmail.Text(V.DataTable.dtPaystubs(V.Args.RowIndex).Email_Addr!FieldValTrim)
+			Gui.frmEmail.txtSubject.Text(V.DataTable.dtPaystubs(V.Args.RowIndex).Subject!FieldValTrim)
+			Gui.frmEmail.txtBody.Text(V.DataTable.dtPaystubs(V.Args.RowIndex).Body!FieldValTrim)
+			Gui.frmEmail.txtRow.Text(V.Args.RowIndex)
+			Gui.frmEmail..Show
+			Gui.frmEmail.txtSName.SetFocus
+			
+	F.Intrinsic.Control.EndSelect
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.GsGCPaystubs_RowCellClick.End
+
+Program.Sub.frmEmail_UnLoad.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmEmail..Visible(False)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.frmEmail_UnLoad.End
+
+Program.Sub.cmdSavePreview_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Data.DataTable.SetValue("dtPaystubs",V.Screen.frmEmail!txtRow.Text,"Sender",V.Screen.frmEmail!txtSEmail.Text,"Name",V.Screen.frmEmail!txtRName.Text,"Email_Addr",V.Screen.frmEmail!txtREmail.Text,"Subject",V.Screen.frmEmail!txtSubject.Text,"Body",V.Screen.frmEmail!txtBody.Text)
+	Gui.frmEmail..Visible(False)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdSavePreview_Click.End
+
+Program.Sub.cmdSend_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.iCnt.Declare
+	V.Local.sSender.Declare
+	V.Local.sRecipients.Declare
+	V.Local.sSubject.Declare
+	V.Local.sBody.Declare
+	V.Local.sAttachments.Declare
+	
+'	Gui.frmPaystubs.lblStatus.Visible(True)
+'	Gui.frmPaystubs.pbStatus.Visible(True)
+'	Gui.frmPaystubs.pbStatus.Min(0)
+'	F.Intrinsic.Control.If(V.DataTable.dtPaystubs.RowCount,<>,0)
+'		Gui.frmPaystubs.pbStatus.Max(V.DataTable.dtPaystubs.RowCount)
+'	F.Intrinsic.Control.Else
+'		Gui.frmPaystubs.pbStatus.Max(100)
+'	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtPaystubs.RowCount--,1)
+'		Gui.frmPaystubs.pbStatus.Value(V.Local.iCnt)
+'		F.Intrinsic.String.Build("{0}*!*{1}",V.DataTable.dtPaystubs(V.Local.iCnt).Sender!FieldVal,"Payroll",V.Local.sSender)
+		F.Intrinsic.String.Build("{0}",V.DataTable.dtPaystubs(V.Local.iCnt).Sender!FieldVal,"Payroll",V.Local.sSender)
+'		F.Intrinsic.String.Build("{0}*!*{1}",V.DataTable.dtPaystubs(V.Local.iCnt).Name!FieldValTrim,V.DataTable.dtPaystubs(V.Local.iCnt).Email_Addr!FieldVal,V.Local.sRecipients)
+		F.Intrinsic.String.Build("{1}",V.DataTable.dtPaystubs(V.Local.iCnt).Name!FieldValTrim,V.DataTable.dtPaystubs(V.Local.iCnt).Email_Addr!FieldVal,V.Local.sRecipients)
+		V.Local.sSubject.Set(V.DataTable.dtPaystubs(V.Local.iCnt).Subject!FieldVal)
+		V.Local.sBody.Set(V.DataTable.dtPaystubs(V.Local.iCnt).Body!FieldVal)
+'		F.Intrinsic.String.Build("{0}*!*{1}",V.DataTable.dtPaystubs(V.Local.iCnt).File_Path!FieldValTrim,V.Global.sDir,V.Local.sAttachments)
+		F.Intrinsic.String.Build("{1}\{0}",V.DataTable.dtPaystubs(V.Local.iCnt).File_Path!FieldValTrim,V.Global.sDir,V.Local.sAttachments)
+'		F.Global.Messaging.QueueMessage(V.Caller.CompanyCode,0,"ePaystub",V.Local.sSubject,V.Local.sSender,V.Local.sRecipients,V.Local.sBody,-1,"",False,"","","","","","","",V.Local.sAttachments,V.Global.bAttach)
+		F.Automation.MSOutlook.QueueEmail(V.Local.sRecipients,V.Local.sSubject,V.Local.sBody,V.Local.sAttachments)
+		F.Intrinsic.Control.If(V.Global.bAttach)
+			F.Intrinsic.File.DeleteFile(V.Local.sAttachments)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	
+'	F.Intrinsic.Control.If(V.DataTable.dtPaystubs.RowCount,<>,0)
+'		Gui.frmPaystubs.pbStatus.Value(V.DataTable.dtPaystubs.RowCount)
+'	F.Intrinsic.Control.Else
+'		Gui.frmPaystubs.pbStatus.Value(100)
+'	F.Intrinsic.Control.EndIf
+	
+'	Gui.frmPaystubs.lblStatus.Visible(False)
+'	Gui.frmPaystubs.pbStatus.Visible(False)
+	F.Intrinsic.Control.CallSub(frmPaystubs_UnLoad)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdSend_Click.End
